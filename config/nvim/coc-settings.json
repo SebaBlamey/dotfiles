@@ -1,0 +1,18 @@
+{
+  "snippets.ultisnips.pythonPrompt": false,
+    "go.goplsOptions": {
+    "usePlaceholders": true,
+    "completeUnimported": true
+  },
+  
+  "prettier.enable": true, // Habilita el uso de Prettier con coc-prettier
+  "prettier.autoFormatOnSave": true, // Formatea automáticamente el código al guardar
+  "prettier.printWidth": 100, // Ancho máximo de línea
+  "prettier.tabWidth": 2, // Tamaño de la tabulación
+  "prettier.singleQuote": true, // Utilizar comillas simples en lugar de comillas dobles
+  "prettier.trailingComma": "es5", // Coma al final en objetos y arreglos (es5, all, none)
+  "prettier.bracketSpacing": true // Espaciado en llaves de objetos
+
+
+}
+
