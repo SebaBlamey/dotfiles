@@ -1,25 +1,20 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 export ZSH="$HOME/.oh-my-zsh"
-
+export ANDROID_HOME="/home/seba/Android/Sdk"
+export PATH="/bin:$ANDROID_HOME/platform-tools:/usr/bin:/usr/local/bin:$HOME/.cargo/bin:/usr/local/bin/docker:$PATH"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git
   sudo
-  autojump
   urltools
   bgnotify
   copypath
   zsh-autosuggestions
   zsh-syntax-highlighting
-  zsh-history-enquirer
-  jovial
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -37,13 +32,15 @@ alias ll='exa -l --color=always --group-directories-first --icons'
 alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing 
 
 # alias for cat
-alias cat='bat'
+alias cat='bat --theme=Nord'
 
 # alias for copypath
 alias cpath='copypath'
 
-# custom scripts
-alias cupdate='$HOME/bash_scripts/update_checker.sh --check'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+export PATH=$PATH:/home/seba/.spicetify

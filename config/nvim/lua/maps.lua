@@ -3,6 +3,8 @@ local function map(mode, lhs, rhs)
 end
 
 -- nvim-tree
+-- abrir archivo en vertical con "S"
+map("n", "S", ":vsplit | :NvimTreeFindFile<CR>")
 map("n", "<C-d>", ":NvimTreeToggle<CR>")
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-l>", "<C-w>l")
@@ -22,3 +24,6 @@ map("n", "<C-f>", ":Telescope find_files<CR>")
 
 -- Seleccionar
 map("n", "<C-a>", "ggVG") -- todo el archivo
+
+-- Copiar al portapapeles
+map("v", "Y", '"+y')

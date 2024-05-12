@@ -10,6 +10,7 @@ o.syntax = "on"
 o.autoindent = true
 o.cursorline = true
 o.expandtab = true
+o.termguicolors = true
 o.shiftwidth = 2
 o.tabstop = 2
 o.encoding = "utf-8"
@@ -24,4 +25,3 @@ o.showcmd = true
 o.showmatch = true
 o.inccommand = "split"
 o.splitbelow = "splitright"
-

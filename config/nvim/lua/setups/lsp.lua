@@ -69,3 +69,9 @@ nvim_lsp.html.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
+
+-- latex
+nvim_lsp.texlab.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
