@@ -90,9 +90,12 @@ return packer.startup(function(use)
   use({ "sainnhe/sonokai" })
   use({ "sainnhe/edge" })
   use({ "oxfist/night-owl.nvim" })
+  use({ "Shatur/neovim-ayu" })
+  use({ "EdenEast/nightfox.nvim" })
+  use({ "Shadorain/shadotheme" })
 
   use({
-    "akinsho/bufferline.nvim",
+    "Theyashsawarkar/bufferline.nvim",
     config = function()
       require("setups.bufferline")
     end,
@@ -177,6 +180,7 @@ return packer.startup(function(use)
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
+      "BurntSushi/ripgrep",
       "nvim-telescope/telescope-fzf-native.nvim",
     },
   })

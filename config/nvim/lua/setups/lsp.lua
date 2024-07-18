@@ -9,69 +9,50 @@ local on_attach = function(client, bufnr)
   -- format on save
   if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_create_autocmd("BufWritePre", {
-      group = "Format",
-      bufnr = bufnr,
-      [[
-            autocmd! * <buffer>
-            autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)
-            ]],
+      group = vim.api.nvim_create_augroup("Format", { clear = true }),
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({ timeout_ms = 1000 })
+      end,
     })
   end
 end
 
 local capabilities = protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
--- TypeScript
-nvim_lsp.tsserver.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
+local servers = {
+  tsserver = {},
+  cssls = {},
+  tailwindcss = {},
+  pyright = {},
+  bashls = {},
+  lua_ls = {
+    settings = {
+      Lua = {
+        runtime = {
+          version = "LuaJIT",
+        },
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file("", true),
+          checkThirdParty = false,
+        },
+        telemetry = {
+          enable = false,
+        },
+      },
+    },
+  },
+  eslint = {},
+  html = {},
+  texlab = {},
+}
 
--- CSS
-nvim_lsp.cssls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-
--- Tailwind
-nvim_lsp.tailwindcss.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-
--- Python
-nvim_lsp.pyright.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-
--- Bash
-nvim_lsp.bashls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-
--- Lua
-nvim_lsp.sumneko_lua.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-
--- eslint
-nvim_lsp.eslint.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-
--- html
-nvim_lsp.html.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-
--- latex
-nvim_lsp.texlab.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
+for server, config in pairs(servers) do
+  config.on_attach = on_attach
+  config.capabilities = capabilities
+  nvim_lsp[server].setup(config)
+end

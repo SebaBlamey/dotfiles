@@ -24,4 +24,3 @@ o.wildmenu = true
 o.showcmd = true
 o.showmatch = true
 o.inccommand = "split"
-o.splitbelow = "splitright"
