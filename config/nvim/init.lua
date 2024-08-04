@@ -1,5 +1,4 @@
-require("settings")
-require("plugins")
-require("maps")
-
-require("theme")
+require("sebablamey.settings")
+require("sebablamey.maps")
+require("sebablamey.diagnostic")
+require("sebablamey.lazy")

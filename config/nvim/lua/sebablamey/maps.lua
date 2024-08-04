@@ -1,13 +1,12 @@
-local function map(mode, lhs, rhs)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
-end
-
 vim.g.mapleader = " "
+
+local function map(mode, lhs, rhs)
+	vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
+end
 
 -- nvim-tree
 -- abrir archivo en vertical con "S"
-map("n", "S", ":vsplit | :NvimTreeFindFile<CR>")
-map("n", "<C-d>", ":NvimTreeToggle<CR>")
+map("n", "<leader>e", ":Neotree toggle<CR>")
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-l>", "<C-w>l")
 
