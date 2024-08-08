@@ -23,6 +23,7 @@ map("n", "<C-w>", ":bdelete<CR>")
 -- Telescope
 map("n", "<leader>ff", ":Telescope find_files<CR>")
 map("n", "<leader>fg", ":Telescope live_grep<CR>")
+map("n", "<leader>fb", ":Telescope buffers<CR>")
 
 -- Seleccionar
 map("n", "<C-a>", "ggVG") -- todo el archivo
