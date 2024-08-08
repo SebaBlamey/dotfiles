@@ -17,6 +17,10 @@ return {
 					auto_resize = false,
 					float = enable,
 				},
+				filesystem = {
+					bind_to_cwd = false,
+					hijack_netrw_behavior = "disabled",
+				},
 			})
 		end,
 	},

@@ -8,8 +8,11 @@ return {
 			"L3MON4D3/LuaSnip",
 			version = "v2.*",
 			build = "make install_jsregexp",
+			dependencies = {
+				"rafamadriz/friendly-snippets",
+			},
 		},
-		"rafamadriz/friendly-snippets",
+		"rafamadriz/friendly-snippets", -- collection of snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 	},
 	config = function()
@@ -17,6 +20,9 @@ return {
 		local lspkind = require("lspkind")
 		local luasnip = require("luasnip")
 
+		luasnip.config.setup({})
+
+		-- Load friendly-snippets
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
@@ -44,7 +50,7 @@ return {
 			window = {
 				completion = {
 					border = "rounded",
-					winhighlight = "Normal:Pmenu,FloatBorder:PMenu,Seatch:None",
+					winhighlight = "Normal:Pmenu,FloatBorder:PMenu,Search:None",
 					col_offset = 1,
 					side_padding = 0,
 				},
