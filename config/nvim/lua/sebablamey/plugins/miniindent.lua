@@ -5,6 +5,7 @@ return {
 			draw = {
 				delay = 50,
 			},
+			symbol = "│",
 		})
 	end,
 }
