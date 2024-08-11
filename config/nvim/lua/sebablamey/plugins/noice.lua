@@ -1,18 +1,26 @@
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
-	depencies = {
+	dependencies = {
 		"MunifTanjim/nui.nvim",
 		"rcarriga/nvim-notify",
 	},
 	config = function()
 		require("noice").setup({
+			routes = {
+				{
+					filter = {
+						event = "lsp",
+						kind = "progress",
+					},
+					opts = { skip = true }, -- Corrige la sintaxis aquí
+				},
+			},
 			lsp = {
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 					["vim.lsp.util.stylize_markdown"] = true,
 					["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-					["lsp_doc_border"] = true,
 				},
 			},
 			presets = {
