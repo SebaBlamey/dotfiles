@@ -23,4 +23,8 @@ return {
 		"atelierbram/Base2Tone-nvim",
 		name = "base2tone",
 	},
+	{
+		"ayu-theme/ayu-vim",
+		name = "ayu-2",
+	},
 }
