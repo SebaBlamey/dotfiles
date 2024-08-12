@@ -46,6 +46,7 @@ return {
 				{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "path" },
+				{ name = "html-css" },
 			}),
 			window = {
 				completion = {

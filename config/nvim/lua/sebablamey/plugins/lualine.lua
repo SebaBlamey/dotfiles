@@ -1,7 +1,14 @@
 return {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-        require("lualine").setup()
-    end,
+	"nvim-lualine/lualine.nvim",
+	event = "VeryLazy",
+	opts = {},
+	specs = {
+		{
+			"rebelot/heirline.nvim",
+			optional = true,
+			opts = function(_, opts)
+				opts.statusline = nil
+			end,
+		},
+	},
 }
