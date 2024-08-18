@@ -26,10 +26,10 @@ cd ..
 rm -rf yay-git
 
 echo "Installing packages with yay..."
-yay -S --noconfirm ttf-cascadia-code-nerd ttf-apple-emoji brave-bin zapzap
+yay -S --noconfirm ttf-cascadia-code-nerd ttf-apple-emoji brave-bin zapzap jetbrains-toolbox onlyoffice-bin
 
 echo "Installing packages with pacman..."
-sudo pacman -S --noconfirm telegram-desktop neovim discord spotify-launcher kitty npm zsh
+sudo pacman -S --noconfirm telegram-desktop neovim discord spotify-launcher kitty nodejs npm zsh ripgrep thunderbird htop github-cli bitwarden fzf rclone obsidian prettier stylua bat exa unzip wl-clipboard
 
 echo "Instaling yarn..."
 sudo npm install -g yarn
@@ -49,6 +49,15 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 echo "Applying Neovim and Kitty configurations..."
 ln -sf ~/config/neovim ~/.config
 ln -sf ~/config/kitty ~/.config
+
+echo "Applying Zsh configuration..."
+ln -sf ~/config/zsh/.zshrc ~/.zshrc
+
+echo "Installing more programs..."
+curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
+spicetify backup apply
+
+
 
 
 for i in {1..100}; do
