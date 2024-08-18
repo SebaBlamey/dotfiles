@@ -27,4 +27,8 @@ return {
 		"ayu-theme/ayu-vim",
 		name = "ayu-2",
 	},
+	{
+		"shaunsingh/nord.nvim",
+		name = "nord",
+	},
 }

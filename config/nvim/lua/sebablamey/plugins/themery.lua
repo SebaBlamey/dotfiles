@@ -22,6 +22,7 @@ return {
 				{ name = "Duotone Forest Dark", colorscheme = "base2tone_forest_dark" },
 				{ name = "Duotone Space Dark", colorscheme = "base2tone_space_dark" },
 				{ name = "Duotone Earth Dark", colorscheme = "base2tone_earth_dark" },
+				{ name = "Nord", colorscheme = "nord" },
 			},
 			livePreview = true,
 		})
