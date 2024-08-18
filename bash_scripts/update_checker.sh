@@ -16,12 +16,13 @@ ask_for_update(){
             echo "Actualizando sistema..."
             sudo pacman -Syu
             yay -Syu
+            echo "✅ Sistema actualizado. Saliendo..."
             ;;
         n|N)
             echo "Saliendo..."
             ;;
         *) 
-            echo "Opcion no valida. Saliendo...";;
+            echo "❌ Opcion no valida. Saliendo...";;
     esac
 }
 

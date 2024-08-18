@@ -1,11 +1,5 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 export ZSH="$HOME/.oh-my-zsh"
-export ANDROID_HOME="/home/seba/Android/Sdk"
-export PATH="/bin:$ANDROID_HOME/platform-tools:/usr/bin:/usr/local/bin:$HOME/.cargo/bin:/usr/local/bin/docker:$PATH"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="cloud"
 
 plugins=(
   git
@@ -15,15 +9,17 @@ plugins=(
   copypath
   zsh-autosuggestions
   zsh-syntax-highlighting
+  fzf-tab
 )
 
 source $ZSH/oh-my-zsh.sh
+autoload -U promptinit; promptinit
+prompt pure
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="$PATH:/home/seba/.bin"
 # alias for ls
 alias ls='exa --icons'
 alias l='exa -lah --color=always --group-directories-first --icons'
@@ -37,10 +33,8 @@ alias cat='bat --theme=Nord'
 # alias for copypath
 alias cpath='copypath'
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+alias sync_gdrive='sh $HOME/.bash_scripts/sync_gdrive.sh'
+alias cupdate='sh $HOME/.bash_scripts/update_checker.sh --check'
 
-export PATH=$PATH:/home/seba/.spicetify
+alias fzf='fzf --preview "bat --style=numbers --color=always --line-range=:500 {}"'
+export PATH=$HOME/.local/bin:$PATH
