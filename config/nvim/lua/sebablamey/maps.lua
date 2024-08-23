@@ -9,6 +9,8 @@ end
 map("n", "<leader>e", ":Neotree toggle<CR>")
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-l>", "<C-w>l")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
 
 -- bufferline
 map("n", "<M-l>", ":BufferLineCycleNext<CR>")

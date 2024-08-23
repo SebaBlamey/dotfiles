@@ -31,4 +31,56 @@ return {
 		"shaunsingh/nord.nvim",
 		name = "nord",
 	},
+	{
+		"neanias/everforest-nvim",
+		name = "everforest",
+	},
+	{
+		"Everblush/nvim",
+		name = "everblush",
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		name = "kanagawa",
+	},
+	{
+		"savq/melange-nvim",
+		name = "melange",
+	},
+	{
+		"AlexvZyl/nordic.nvim",
+		name = "nordic",
+	},
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+	},
+	{
+		"sainnhe/sonokai",
+		name = "sonokai",
+	},
+	{
+		"EdenEast/nightfox.nvim",
+		name = "nightfox",
+	},
+	{
+		"craftzdog/solarized-osaka.nvim",
+		name = "solarized-osaka",
+	},
+	{
+		"Shadorain/shadotheme",
+		name = "shadotheme",
+	},
+	{
+		"Mofiqul/dracula.nvim",
+		name = "dracula",
+	},
+	{
+		"decaycs/decay.nvim",
+		name = "decay",
+	},
+	{
+		"daschw/leaf.nvim",
+		name = "leaf",
+	},
 }
