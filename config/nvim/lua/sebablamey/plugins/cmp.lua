@@ -21,6 +21,11 @@ return {
 		local luasnip = require("luasnip")
 
 		luasnip.config.setup({})
+		lspkind.init({
+			symbol_map = {
+				Supermaven = "󱚝",
+			},
+		})
 
 		-- Load friendly-snippets
 		require("luasnip.loaders.from_vscode").lazy_load()
@@ -47,6 +52,7 @@ return {
 				{ name = "buffer" },
 				{ name = "path" },
 				{ name = "html-css" },
+				{ name = "supermaven" },
 			}),
 			window = {
 				completion = {
