@@ -5,6 +5,6 @@ return {
 		"nvim-lua/plenary.nvim",
 	},
 	config = function()
-		-- require("html-css").setup({})
+		require("html-css").setup({})
 	end,
 }
