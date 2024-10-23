@@ -1,28 +1,28 @@
 #!/bin/bash
 
 check_updates() {
-    sudo pacman -Sy
-    pacman_updates=$(pacman -Qu | wc -l)
+    clear
+    echo -e "🔍 Buscando actualizaciones..."
+    yay -Sy &> /dev/null
     yay_updates=$(yay -Qu | wc -l)
-    total_updates=$((pacman_updates + yay_updates))
-
-    echo " Actualizaciones pendientes: $total_updates"
+    clear
+    echo -e "📦 Actualizaciones pendientes: \033[1;32m$yay_updates\033[0m"
 }
 
-ask_for_update(){
-    read -p "¿Desea actualizar el sistema? [Y/n]: " choise
-    case "$choise" in
-        y|S|""|s|Y)
-            echo "Actualizando sistema..."
-            sudo pacman -Syu
-            yay -Syu
-            echo "✅ Sistema actualizado. Saliendo..."
+ask_for_update() {
+    read -p "¿Desea actualizar el sistema? [Y/n]: " choice
+    case "$choice" in
+        [yY][eE][sS]|[yY]|"")
+            echo -e "🔄 Actualizando sistema..."
+            yay -Syu --noconfirm
+            echo -e "✅ \033[1;32mSistema actualizado.\033[0m Saliendo..."
             ;;
-        n|N)
-            echo "Saliendo..."
+        [nN][oO]|[nN])
+            echo -e "🚪 \033[1;31mSaliendo...\033[0m"
             ;;
-        *) 
-            echo "❌ Opcion no valida. Saliendo...";;
+        *)
+            echo -e "❌ \033[1;31mOpción no válida. Saliendo...\033[0m"
+            ;;
     esac
 }
 
@@ -30,5 +30,5 @@ if [ "$1" == "--check" ]; then
     check_updates
     ask_for_update
 else
-    echo "Uso: $0 [--check]"
+    echo -e "Uso: \033[1;34m$0 [--check]\033[0m"
 fi

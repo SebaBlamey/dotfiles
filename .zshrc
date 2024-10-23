@@ -33,8 +33,14 @@ alias cat='bat --theme=Nord'
 # alias for copypath
 alias cpath='copypath'
 
+alias vi='nvim'
+alias vim='nvim'
+
 alias sync_gdrive='sh $HOME/.bash_scripts/sync_gdrive.sh'
 alias cupdate='sh $HOME/.bash_scripts/update_checker.sh --check'
+alias update_mirrors='sudo reflector --country Chile --age 12 --protocol https --sort rate --number 15 --save /etc/pacman.d/mirrorlist'
 
 alias fzf='fzf --preview "bat --style=numbers --color=always --line-range=:500 {}"'
+
+
 export PATH=$HOME/.local/bin:$PATH

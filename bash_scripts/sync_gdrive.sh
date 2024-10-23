@@ -3,6 +3,7 @@
 LOCAL_FOLDER="$HOME/Documentos/Universidad"
 REMOTE_GDRIVE_FOLDER="gdrive:/Universidad"
 
+
 # Preguntar al usuario la dirección de la sincronización
 echo "¿Qué acción deseas realizar? 🤔"
 echo "1) Sincronizar LOCAL -> GDRIVE 🌍"
@@ -11,25 +12,31 @@ read -p "Selecciona una opción (1 o 2): " SYNC_OPTION
 
 # Función para sincronizar LOCAL -> GDRIVE
 sync_local_to_gdrive() {
-    rclone sync "$LOCAL_FOLDER" "$REMOTE_GDRIVE_FOLDER" --progress --verbose
-    if [ $? -eq 0 ]; then
-        notify-send "Sincronización completada 🎉" "Se ha sincronizado la carpeta $LOCAL_FOLDER con $REMOTE_GDRIVE_FOLDER"
-        echo "✅ Sincronización completada: LOCAL -> GDRIVE 🌍"
-    else
-        notify-send "Error en la sincronización ❌" "Ha ocurrido un error al sincronizar la carpeta $LOCAL_FOLDER con $REMOTE_GDRIVE_FOLDER"
-        echo "❌ Error en la sincronización: LOCAL -> GDRIVE 🌍"
-    fi
+        rclone sync "$LOCAL_FOLDER" "$REMOTE_GDRIVE_FOLDER" --progress --verbose
+        if [ $? -eq 0 ]; then
+            notify-send "Sincronización completada 🎉" "Se ha sincronizado la carpeta $LOCAL_FOLDER con $REMOTE_GDRIVE_FOLDER"
+            echo "✅ Sincronización completada: LOCAL -> GDRIVE 🌍"
+        else
+            notify-send "Error en la sincronización ❌" "Ha ocurrido un error al sincronizar la carpeta $LOCAL_FOLDER con $REMOTE_GDRIVE_FOLDER"
+            echo "❌ Error en la sincronización: LOCAL -> GDRIVE 🌍"
+        fi
 }
 
 # Función para sincronizar GDRIVE -> LOCAL
 sync_gdrive_to_local() {
-    rclone sync "$REMOTE_GDRIVE_FOLDER" "$LOCAL_FOLDER" --progress --verbose
-    if [ $? -eq 0 ]; then
-        notify-send "Sincronización completada 🎉" "Se ha sincronizado la carpeta $REMOTE_GDRIVE_FOLDER con $LOCAL_FOLDER"
-        echo "✅ Sincronización completada: GDRIVE -> LOCAL 🖥️"
+    show_differences
+    read -p "¿Deseas continuar con la sincronización? (s/n): " CONTINUE
+    if [ "$CONTINUE" = "s" ]; then
+        rclone sync "$REMOTE_GDRIVE_FOLDER" "$LOCAL_FOLDER" --progress --verbose
+        if [ $? -eq 0 ]; then
+            notify-send "Sincronización completada 🎉" "Se ha sincronizado la carpeta $REMOTE_GDRIVE_FOLDER con $LOCAL_FOLDER"
+            echo "✅ Sincronización completada: GDRIVE -> LOCAL 🖥️"
+        else
+            notify-send "Error en la sincronización ❌" "Ha ocurrido un error al sincronizar la carpeta $REMOTE_GDRIVE_FOLDER con $LOCAL_FOLDER"
+            echo "❌ Error en la sincronización: GDRIVE -> LOCAL 🖥️"
+        fi
     else
-        notify-send "Error en la sincronización ❌" "Ha ocurrido un error al sincronizar la carpeta $REMOTE_GDRIVE_FOLDER con $LOCAL_FOLDER"
-        echo "❌ Error en la sincronización: GDRIVE -> LOCAL 🖥️"
+        echo "Sincronización cancelada por el usuario."
     fi
 }
 
