@@ -41,6 +41,9 @@ alias cupdate='sh $HOME/.bash_scripts/update_checker.sh --check'
 alias update_mirrors='sudo reflector --country Chile --age 12 --protocol https --sort rate --number 15 --save /etc/pacman.d/mirrorlist'
 
 alias fzf='fzf --preview "bat --style=numbers --color=always --line-range=:500 {}"'
-
+alias gl='git log --date=local'
 
 export PATH=$HOME/.local/bin:$PATH
+
+# Agregar GOPATH/bin al PATH
+export PATH=$PATH:$(go env GOPATH)/bin

@@ -1,12 +1,5 @@
 #!/bin/bash
 
-show_progress(){
-  local progess=$1
-  local total=$2
-  local percent=$((progress * 100 / total))
-    printf "\rProgress: [%s%s] %d%%" $(printf '#%.0s' $(seq 1 $percent)) $(printf ' %.0s' $(seq $percent 100)) $percent
-}
-
 read -p "Are you sure you want to install seba's configuration? [Y/n]: " confirm
 confirm=${confirm:-Y}
 
@@ -49,17 +42,11 @@ echo "Installing zsh-syntax-highlighting..."
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 echo "Applying Neovim and Kitty configurations..."
-ln -s ~/config/neovim ~/.config/kitty
-ln -s ~/config/kitty ~/.config/nvim
+ln -s ~/config/neovim ~/.config/nvim	
+ln -s ~/config/kitty ~/.config/kitty
 
 echo "Applying Zsh configuration..."
 ln -sf ~/config/zsh/.zshrc ~/.zshrc
 
-
-
-for i in {1..100}; do
-  sleep 0.1
-  show_progress $i 100
-done
 
 echo -e "\Configurations applied successfully!"
