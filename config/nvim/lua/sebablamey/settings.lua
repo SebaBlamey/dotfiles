@@ -26,3 +26,4 @@ o.splitright = true
 o.splitbelow = true
 o.termguicolors = true
 o.scrolloff = 8
+o.laststatus = 3

@@ -20,6 +20,11 @@ return {
         filesystem = {
           bind_to_cwd = false,
           hijack_netrw_behavior = "disabled",
+          hide_dotfiles = false,
+          hide_gitignored = false,
+          hide_by_name = {
+            "node_modules",
+          },
         },
       })
     end,
