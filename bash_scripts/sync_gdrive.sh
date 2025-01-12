@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOCAL_FOLDER="$HOME/Documentos/Universidad"
+LOCAL_FOLDER="$HOME/Documents/Universidad"
 REMOTE_GDRIVE_FOLDER="gdrive:/Universidad"
 
 
